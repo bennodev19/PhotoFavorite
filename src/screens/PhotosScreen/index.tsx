@@ -1,27 +1,43 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
 import PhotoListView from "./components/PhotoListView";
+import { ActivityIndicator } from "react-native";
 
 const PhotosScreen = () => {
-  const [placeholderList] = useState(
-    Array(100)
-      .fill(0)
-      .map((_, i) => ({ id: String(i + 1), title: `Title ${i + 1}` }))
-  );
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  // Fetch images
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://picsum.photos/v2/list?page=3&limit=100"
+        );
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
-    <Wrapper>
-      <PhotoListView items={placeholderList} />
-    </Wrapper>
+    <Container>
+      {isLoading ? <ActivityIndicator /> : <PhotoListView items={data} />}
+    </Container>
   );
 };
 
-const Wrapper = styled.View`
+export default PhotosScreen;
+
+const Container = styled.View`
   flex: 1;
 
-  /* children */
   justify-content: center;
   align-items: center;
 `;
-
-export default PhotosScreen;

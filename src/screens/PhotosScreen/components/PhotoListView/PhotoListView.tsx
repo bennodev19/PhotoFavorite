@@ -10,7 +10,9 @@ const PhotoListView: React.FC<PhotoListViewProps> = (props) => {
     <Container>
       <FlatList
         data={items}
-        renderItem={({ item }) => <ItemView title={item.title} />}
+        renderItem={({ item }) => (
+          <ItemView download_url={item.download_url} author={item.author} />
+        )}
         keyExtractor={(item) => item.id}
       />
     </Container>
@@ -20,12 +22,13 @@ const PhotoListView: React.FC<PhotoListViewProps> = (props) => {
 export default PhotoListView;
 
 type PhotoListViewProps = {
-  items: Item[];
+  items: ItemType[];
 };
 
-type Item = {
+export type ItemType = {
   id: string;
-  title: string;
+  author: string;
+  download_url: string;
 };
 
 const Container = styled.View`

@@ -1,4 +1,5 @@
 import * as Linking from "expo-linking";
+import { LinkingOptions } from "@react-navigation/native";
 
 export default {
   prefixes: [Linking.makeUrl("/")],
@@ -21,4 +22,4 @@ export default {
       NotFound: "*",
     },
   },
-};
+} as LinkingOptions<any>;

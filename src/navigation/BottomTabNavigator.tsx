@@ -60,7 +60,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="PhotosScreen"
         component={PhotosScreen}
-        options={{ headerTitle: "Photos" }}
+        options={{ headerShown: false }}
       />
     </TabOneStack.Navigator>
   );
@@ -74,7 +74,7 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="CounterScreen"
         component={CounterScreen}
-        options={{ headerTitle: "Counter" }}
+        options={{ headerShown: false }}
       />
     </TabTwoStack.Navigator>
   );
