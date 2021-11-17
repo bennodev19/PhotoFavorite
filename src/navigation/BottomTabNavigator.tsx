@@ -21,7 +21,7 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="Photos"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+      screenOptions={{ tabBarActiveTintColor: Colors[colorScheme].tint }}
     >
       <BottomTab.Screen
         name="Photos"
@@ -36,9 +36,7 @@ export default function BottomTabNavigator() {
         name="Counter"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon name="md-clock" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <TabBarIcon name="timer" color={color} />,
         }}
       />
     </BottomTab.Navigator>
