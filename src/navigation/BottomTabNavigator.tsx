@@ -6,8 +6,12 @@ import * as React from "react";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import PhotosScreen from "../screens/PhotosScreen";
-import CounterScreen from '../screens/CounterScreen';
-import { BottomTabParamList, PhotosParamList, CounterParamList } from "../types";
+import CounterScreen from "../screens/CounterScreen";
+import {
+  BottomTabParamList,
+  PhotosParamList,
+  CounterParamList,
+} from "../types";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -32,7 +36,9 @@ export default function BottomTabNavigator() {
         name="Counter"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="md-clock" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="md-clock" color={color} />
+          ),
         }}
       />
     </BottomTab.Navigator>
@@ -42,6 +48,7 @@ export default function BottomTabNavigator() {
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
 function TabBarIcon(props: { name: string; color: string }) {
+  // @ts-ignore
   return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
 }
 
@@ -69,7 +76,7 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="CounterScreen"
         component={CounterScreen}
-        options={{ headerTitle: 'Counter' }}
+        options={{ headerTitle: "Counter" }}
       />
     </TabTwoStack.Navigator>
   );
