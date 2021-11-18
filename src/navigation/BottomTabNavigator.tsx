@@ -12,11 +12,13 @@ import {
   PhotosParamList,
   CounterParamList,
 } from "../types";
+import { CounterContext } from "../context/CounterContext";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
+  const { count } = React.useContext(CounterContext);
 
   return (
     <BottomTab.Navigator
@@ -37,6 +39,7 @@ export default function BottomTabNavigator() {
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="timer" color={color} />,
+          tabBarBadge: count,
         }}
       />
     </BottomTab.Navigator>

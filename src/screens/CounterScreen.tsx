@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text } from "react-native";
 import styled from "styled-components/native";
+import { CounterContext } from "../context/CounterContext";
 
 const CounterScreen = () => {
-  const [count, setCount] = useState<number>(0);
-
-  const increment = () => setCount((prev: number) => prev + 1);
+  const { count, increment, decrement, reset } =
+    React.useContext(CounterContext);
 
   return (
     <Container>
       <ClickedText>Clicked {count} times</ClickedText>
       <Button onPress={increment}>
         <Text>Increment</Text>
+      </Button>
+      <Button onPress={decrement}>
+        <Text>Decrement</Text>
+      </Button>
+      <Button onPress={reset}>
+        <Text>Reset</Text>
       </Button>
     </Container>
   );
