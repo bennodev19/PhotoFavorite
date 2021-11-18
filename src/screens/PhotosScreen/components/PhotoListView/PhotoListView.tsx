@@ -22,7 +22,7 @@ const PhotoListView: React.FC<PhotoListViewProps> = (props) => {
 export default PhotoListView;
 
 type PhotoListViewProps = {
-  items: ItemType[];
+  items: readonly ItemType[];
 };
 
 export type ItemType = {
