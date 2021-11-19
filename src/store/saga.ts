@@ -35,8 +35,10 @@ function* fetchSaga() {
 }
 
 function* countTill20() {
+  // Retrieve current count value
   let count = yield select((state) => state.count);
 
+  // do increment until count >= 20
   while (count < 20) {
     yield put(increment());
     count = count + 1;
@@ -48,20 +50,23 @@ function* countTill20() {
 function* numbersSaga() {
   // instead of while(true), takeEvery or takeLatest can be used
   while (true) {
-    yield take(reset.type);
+    yield take(reset.type); // Wait until Reset action (-> Reset Button pressed)
 
+    // Create Race condition
+    // -> resolve what ever finishes first ('countTill20' or creating a 'decrement' action)
     const { cancel } = yield race({
       task: call(countTill20),
       cancel: take(decrement.type),
     });
 
+    // When race condition was canceled -> (task decrement.type 'won' the race condition) log whatever
     if (cancel) {
       yield call(console.log, "Automatic count cancelled!");
     }
   }
 }
 
-// Root Saga: Spwan all watcher sagas in a non-blocking fashion
+// Root Saga: Spawn all watcher sagas in a non-blocking fashion
 function* rootSaga() {
   yield all([
     // Add new sagas by forking them here

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Dispatch } from "@reduxjs/toolkit";
+import type { Dispatch } from "@reduxjs/toolkit";
 
 import { RootStateT } from "../../store/slices";
 import {
