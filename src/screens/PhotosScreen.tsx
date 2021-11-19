@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, Dispatch } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components/native";
 
-import usePhotos from "../hooks/redux/usePhotos";
+import { fetchPhotosStart, photosSelector, PhotosT } from "../store/slices/photos";
+import { RootStateT } from "../store/slices";
+
 import PhotoList from "../components/PhotoList";
 
 const PhotosScreen = () => {
-  const { data, isLoading } = usePhotos();
+  const dispatch = useDispatch<Dispatch<any>>();
+
+  useEffect(() => {
+    dispatch(fetchPhotosStart());
+  }, []);
+
+  const { data, isLoading } = useSelector<RootStateT, PhotosT>(photosSelector);
 
   return (
     <>
