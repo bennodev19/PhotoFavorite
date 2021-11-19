@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components/native";
 
 type Props = {
-  backgroundColor?: string,
-  title?: string,
-}
+  backgroundColor?: string;
+  title?: string;
+};
 const Box = ({ backgroundColor = "red", title = "No title" }: Props) => (
   <Wrapper
     backgroundColor={backgroundColor}
@@ -31,6 +31,5 @@ const Title = styled.Text`
   font-weight: bold;
   font-size: 24px;
 `;
-
 
 export default Box;

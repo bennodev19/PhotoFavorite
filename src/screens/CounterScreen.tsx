@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
 import styled from "styled-components/native";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { Action, Dispatch } from "@reduxjs/toolkit";
 
 import {

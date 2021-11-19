@@ -9,7 +9,7 @@ import {
 import { RootStateT } from "./index";
 import { ItemT } from "../../components/Item";
 
-export type PhotosDataT = ReadonlyArray<ItemT>
+export type PhotosDataT = ReadonlyArray<ItemT>;
 export type PhotosT = {
   data: PhotosDataT;
   error?: Error;

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
 
-import { RootStateT } from "../../store/slices/index";
+import { RootStateT } from "../../store/slices";
 import {
   photosSelector,
   fetchPhotos,

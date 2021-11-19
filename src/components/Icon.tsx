@@ -8,9 +8,7 @@ type IconPropsT = {
   name: string;
 };
 
-const Icon: FunctionComponent<IconPropsT> = ({
-  name
-}: IconPropsT) => {
+const Icon: FunctionComponent<IconPropsT> = ({ name }: IconPropsT) => {
   const theme = useColorScheme();
 
   return <Ionicons name={name} size={30} color={Colors[theme].background} />;

@@ -9,7 +9,10 @@ interface PhotoListPropsT {
   isLoading?: boolean;
 }
 
-const PhotoList: FunctionComponent<PhotoListPropsT> = ({ data, isLoading = false }) => {
+const PhotoList: FunctionComponent<PhotoListPropsT> = ({
+  data,
+  isLoading = false,
+}) => {
   const renderItem: FunctionComponent<{ item: ItemT }> = ({ item }) => (
     <Item
       id={item.id}

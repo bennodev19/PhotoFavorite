@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 
-import usePhotos from '../hooks/redux/usePhotos';
+import usePhotos from "../hooks/redux/usePhotos";
 import PhotoList from "../components/PhotoList";
 
 const PhotosScreen = () => {
